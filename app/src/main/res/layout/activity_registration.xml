@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:layout_margin="2dp"
-            android:hint="Enter Firstname"
+            android:hint="Enter Name"
             android:id="@+id/etFirstname"/>
 
         <EditText
