@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center"
     tools:context=".StudentFeedback">
 
     <LinearLayout
@@ -1035,6 +1036,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
+                    android:gravity="center_horizontal"
                     android:layout_marginTop="16dp"
                     android:padding="25dp"
                     android:text="Submit Form" />
