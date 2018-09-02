@@ -4,36 +4,25 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.supriyak.svecfeedback.Login"
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/backgroundcolor"
     android:gravity="center">
-    <LinearLayout
-        android:layout_centerVertical="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="Enter Username"
+            android:hint="Username"
             android:inputType="textEmailAddress"/>
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="Enter password"
+            android:hint="Password"
             android:inputType="textPassword" />
 
         <Button
@@ -44,7 +33,7 @@
             android:text="Login" />
 
         <TextView
-            android:text="Not a registered user?"
+            android:text="New User?"
             android:id="@+id/textViewNotauser"
             android:textAlignment="center"
             android:layout_margin="2dp"
@@ -58,10 +47,4 @@
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-
-
-    </LinearLayout>
-
-
 </LinearLayout>

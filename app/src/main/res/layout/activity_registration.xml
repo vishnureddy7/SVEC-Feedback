@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.supriyak.svecfeedback.Registration">
+    android:gravity="center"
+    tools:context=".Registration">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,86 +24,105 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearance"
             android:text="User Registration"
-            android:id="@+id/textView"
+            android:textStyle="bold"
             android:layout_gravity="center_horizontal"/>
 
-        <android.support.v7.widget.AppCompatSpinner
-            android:layout_width="match_parent"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:id="@+id/spinnerType"
-            android:entries="@array/SPINNERVALUES">
-
-        </android.support.v7.widget.AppCompatSpinner>
-
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Are you"
+                />
+            <Spinner
+                android:id="@+id/spinnerType"
+                android:entries="@array/SPINNERVALUES"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>>
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/firstname"
+            android:hint="First Name"
             android:inputType="textPersonName"
             android:layout_margin="2dp"
-            android:hint="Enter Name"
-            android:id="@+id/etFirstname"/>
-
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:id="@+id/lastname"
+            android:hint="Last Name"
             android:inputType="textPersonName"
             android:layout_margin="2dp"
-            android:hint="Enter Lastname"
-            android:id="@+id/etLastname"/>
-
-        <EditText
-            android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:hint="Enter email Id"
-            android:inputType="textEmailAddress"/>
+            />
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/id"
+            android:hint="Student Id"
+            android:inputType="text"
+            android:layout_margin="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:hint="Enter password"
-            android:inputType="textPassword" />
+            />
 
         <EditText
-            android:id="@+id/etCpassword"
+            android:id="@+id/password"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_margin="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:hint="Confirm password"
-            android:inputType="textPassword" />
-
+            />
 
         <EditText
+            android:id="@+id/cpassword"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:layout_margin="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:layout_margin="2dp"
-            android:id="@+id/etEmpId"
-            android:hint="Student Id" />
+            />
 
         <EditText
+            android:id="@+id/mobile"
+            android:hint="Mobile Number"
+            android:inputType="phone"
+            android:layout_margin="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPostalAddress"
-            android:layout_margin="2dp"
-            android:id="@+id/etLocation"
-            android:hint="Mobile Number" />
+            />
 
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
             android:layout_margin="2dp"
-            android:id="@+id/etPhone"
-            android:hint="Address for Communication" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:id="@+id/address"
+            android:hint="Address for Communication"
+            android:inputType="text|textMultiLine"
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
         <Button
             android:id="@+id/buttonRegister"
+            android:text="Register"
+            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:layout_gravity="center_horizontal"/>
+            />
     </LinearLayout>
 </RelativeLayout>

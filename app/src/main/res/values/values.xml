@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <array name="SPINNERVALUES">
+        <item>Student</item>
+        <item>Faculty</item>
+        <item>Alumni</item>
+    </array>
+</resources>
