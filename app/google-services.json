@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "578265752668",
+    "firebase_url": "https://svecfeedback.firebaseio.com",
+    "project_id": "svecfeedback",
+    "storage_bucket": "svecfeedback.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578265752668:android:c5e95e1acfa79922",
+        "android_client_info": {
+          "package_name": "com.example.supriyak.svecfeedback"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578265752668-fvg8j2q6486n67k7d9oooq2bur1hrjl4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.supriyak.svecfeedback",
+            "certificate_hash": "ae605e344a7e6a5bbf39d27ee7a22043d2659ddc"
+          }
+        },
+        {
+          "client_id": "578265752668-mmn37j90doe9ph3vp4u2a5mq0ipncrja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTlunP7SSRmRsdw_PFYpd1gOlDrquykWs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578265752668-mmn37j90doe9ph3vp4u2a5mq0ipncrja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SVECFeedback</string>
+    <string name="studentfeedback"><u>STUDENT FEEDBACK FORM</u></string>
 </resources>
