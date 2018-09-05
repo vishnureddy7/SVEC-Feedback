@@ -1,6 +1,9 @@
 package com.example.supriyak.svecfeedback;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.nfc.Tag;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,9 +14,21 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class Registration extends AppCompatActivity {
@@ -23,6 +38,9 @@ public class Registration extends AppCompatActivity {
     UserDetails details;
     Button submit;
     EditText firstname,lastname,mobile,email,address,password,cpassword;
+    String toast;
+    View v;
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +60,7 @@ public class Registration extends AppCompatActivity {
                             break;
                         case 3:
                             details.type = "Employer";
+                            Registration.this.id.setText("");
                             id1.setVisibility(View.GONE);
                             break;
                         default:
@@ -69,16 +88,141 @@ public class Registration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 fillDetails();
+                //if(true){
                 if(validate()){
                     //insert into firebase
-                    sendToast("Success");
-
-                    // Write a message to the database
-                    // Write a message to the database
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("message");
-
-                    myRef.setValue("Hello, World!");
+                    pd = ProgressDialog.show(Registration.this,"Please wait while we register your account","Please wait...");
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    if(!details.type.equals("Employer")){
+                        db.collection("User Details")
+                                .whereEqualTo("id", details.id)
+                                .whereEqualTo("type",details.type)
+                                .get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            int i=0;
+                                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                                i=i+1;
+                                                Log.d("SUCCESS", document.getId() + " => " + document.getData());
+                                            }
+                                            if(i!=0){
+                                                Registration.this.pd.dismiss();
+                                                sendToast("User Already Exists!");
+                                                focus(id);
+                                            }
+                                            else{
+                                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                                db.collection("User Details")
+                                                        .whereEqualTo("mobile",details.mobile)
+                                                        .get()
+                                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                                if (task.isSuccessful()) {
+                                                                    int i = 0;
+                                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                                                        i = i + 1;
+                                                                    }
+                                                                    if (i != 0) {
+                                                                        Registration.this.pd.dismiss();
+                                                                        Registration.this.sendToast("Mobile Number is already in use!");
+                                                                        Registration.this.focus(Registration.this.email);
+                                                                    } else {
+                                                                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                                                        db.collection("User Details")
+                                                                                .whereEqualTo("email",details.email)
+                                                                                .get()
+                                                                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                                                    @Override
+                                                                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                                                        if(task.isSuccessful()){
+                                                                                            int i=0;
+                                                                                            for(QueryDocumentSnapshot document: task.getResult()){
+                                                                                                i=i+1;
+                                                                                            }
+                                                                                            if(i!=0){
+                                                                                                Registration.this.pd.dismiss();
+                                                                                                Registration.this.sendToast("Email ID is already in use!");
+                                                                                                Registration.this.focus(Registration.this.mobile);
+                                                                                            }
+                                                                                            else{
+                                                                                                Registration.this.registerAccount();
+                                                                                            }
+                                                                                        }
+                                                                                        else{
+                                                                                            sendToast("Error While Registering. Please try again later.");
+                                                                                            Registration.this.pd.dismiss();
+                                                                                        }
+                                                                                    }
+                                                                                });
+                                                                    }
+                                                                }
+                                                                else{
+                                                                    sendToast("Error While Registering. Please try again later.");
+                                                                    Registration.this.pd.dismiss();
+                                                                }
+                                                            }
+                                                        });
+                                            }
+                                        } else {
+                                            sendToast("Error While Registering. Please try again later.");
+                                            Registration.this.pd.dismiss();
+                                        }
+                                    }
+                                });
+                    }
+                    else {
+                        db.collection("User Details")
+                                .whereEqualTo("mobile", details.mobile)
+                                .get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            int i = 0;
+                                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                                i = i + 1;
+                                            }
+                                            if (i != 0) {
+                                                Registration.this.pd.dismiss();
+                                                Registration.this.sendToast("Mobile Number is already in use!");
+                                                Registration.this.focus(Registration.this.email);
+                                            } else {
+                                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                                db.collection("User Details")
+                                                        .whereEqualTo("email", details.email)
+                                                        .get()
+                                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                                if (task.isSuccessful()) {
+                                                                    int i = 0;
+                                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                                                        i = i + 1;
+                                                                    }
+                                                                    if (i != 0) {
+                                                                        Registration.this.pd.dismiss();
+                                                                        Registration.this.sendToast("Email ID is already in use!");
+                                                                        Registration.this.focus(Registration.this.mobile);
+                                                                    } else {
+                                                                        Registration.this.registerAccount();
+                                                                    }
+                                                                } else {
+                                                                    sendToast("Error While Registering. Please try again later.");
+                                                                    Registration.this.pd.dismiss();
+                                                                }
+                                                            }
+                                                        });
+                                            }
+                                        } else {
+                                            sendToast("Error While Registering. Please try again later.");
+                                            Registration.this.pd.dismiss();
+                                        }
+                                    }
+                                });
+                    }
                 }
             }
         });
@@ -92,13 +236,15 @@ public class Registration extends AppCompatActivity {
         details.mobile = mobile.getText().toString().trim();
         details.email = email.getText().toString().trim();
         details.address = address.getText().toString().trim();
-        details.id = id.getText().toString().trim();
+        details.id = id.getText().toString().trim().toUpperCase();
         switch (spinner.getSelectedItemPosition()){
             case 1:
                 details.type="Faculty";
                 break;
             case 3:
                 details.type="Employer";
+                Registration.this.id.setText("");
+                details.id="";
                 break;
             case 2:
                 details.type="Alumni";
@@ -111,8 +257,8 @@ public class Registration extends AppCompatActivity {
     }
 
     public boolean validate(){
-        String toast = "";
-        View v=null;
+        toast = "";
+        v=null;
         Pattern VALID_EMAIL_ADDRESS_REGEX =
                 Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
         if(details.firstname.length()==0){
@@ -179,12 +325,47 @@ public class Registration extends AppCompatActivity {
         return true;
     }
 
+    public Map<String, Object> getUser(){
+        Map<String, Object> user = new HashMap<>();
+        user.put("firstname",details.firstname);
+        user.put("lastname",details.lastname);
+        user.put("email",details.email);
+        user.put("id",details.id);
+        user.put("mobile",details.mobile);
+        user.put("password",details.password);
+        user.put("address",details.address);
+        user.put("type",details.type);
+        return user;
+    }
+
     public void sendToast(String text){
         Toast.makeText(Registration.this,text,Toast.LENGTH_LONG).show();
     }
 
     public void focus(View v){
         v.requestFocus();
+    }
+
+    void registerAccount(){
+        FirebaseFirestore db=FirebaseFirestore.getInstance();
+        db.collection("User Details").document()
+                .set(getUser())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        sendToast("Successfully registered");
+                        Registration.this.pd.dismiss();
+                        Intent thankyou = new Intent(Registration.this,RegistrationThankyou.class);
+                        startActivity(thankyou);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        sendToast("Error while Registering. Please try again later.");
+                        Registration.this.pd.dismiss();
+                    }
+                });
     }
 }
 
