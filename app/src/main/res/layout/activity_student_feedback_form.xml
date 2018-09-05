@@ -1072,7 +1072,7 @@
                     android:text="Suggestions for inclusion of new  technologies/ courses/ tools etc to be included in the curriculum:" />
 
                 <EditText
-                    android:id="@+id/suggestion"
+                    android:id="@+id/suggestions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"

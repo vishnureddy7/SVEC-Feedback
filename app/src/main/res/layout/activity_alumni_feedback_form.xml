@@ -19,7 +19,6 @@
         android:layout_alignParentRight="true">
 
         <TextView
-            android:id="@+id/alumnisurvey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -108,12 +107,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/ka"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb1"
+                        android:id="@+id/ka1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
@@ -122,28 +122,28 @@
                         android:textSize="18dp"/>
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb2"
+                        android:id="@+id/ka2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb3"
+                        android:id="@+id/ka3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb4"
+                        android:id="@+id/ka4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb5"
+                        android:id="@+id/ka5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -174,39 +174,40 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal"
+                    android:id="@+id/kb"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb6"
+                        android:id="@+id/kb1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb7"
+                        android:id="@+id/kb2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb8"
+                        android:id="@+id/kb3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb9"
+                        android:id="@+id/kb4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb10"
+                        android:id="@+id/kb5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -237,39 +238,40 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal"
+                    android:id="@+id/kc"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb11"
+                        android:id="@+id/kc1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb12"
+                        android:id="@+id/kc2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb13"
+                        android:id="@+id/kc3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb14"
+                        android:id="@+id/kc4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/knowledge_rb15"
+                        android:id="@+id/kc5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -327,40 +329,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/sa"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/skills_rb1"
+                        android:id="@+id/sa1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb2"
+                        android:id="@+id/sa2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb3"
+                        android:id="@+id/sa3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb4"
+                        android:id="@+id/sa4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb5"
+                        android:id="@+id/sa5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -390,40 +393,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/sb"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/skills_rb6"
+                        android:id="@+id/sb1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb7"
+                        android:id="@+id/sb2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb8"
+                        android:id="@+id/sb3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb9"
+                        android:id="@+id/sb4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb10"
+                        android:id="@+id/sb5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -453,40 +457,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/sc"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/skills_rb11"
+                        android:id="@+id/sc1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb12"
+                        android:id="@+id/sc2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb13"
+                        android:id="@+id/sc3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb14"
+                        android:id="@+id/sc4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb15"
+                        android:id="@+id/sc5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -516,40 +521,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/sd"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/skills_rb16"
+                        android:id="@+id/sd1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb17"
+                        android:id="@+id/sd2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb18"
+                        android:id="@+id/sd3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb19"
+                        android:id="@+id/sd4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/skills_rb20"
+                        android:id="@+id/sd5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -600,40 +606,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/apa"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/application_rb1"
+                        android:id="@+id/apa1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/application_rb2"
+                        android:id="@+id/apa2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/application_rb3"
+                        android:id="@+id/apa3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/application_rb4"
+                        android:id="@+id/apa4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/application_rb5"
+                        android:id="@+id/apa5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -663,40 +670,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/apb"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/application_rb6"
+                        android:id="@+id/apb1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/application_rb7"
+                        android:id="@+id/apb2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/application_rb8"
+                        android:id="@+id/apb3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/application_rb9"
+                        android:id="@+id/apb4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/application_rb10"
+                        android:id="@+id/apb5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -747,40 +755,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/ata"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/attitude_rb1"
+                        android:id="@+id/ata1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb2"
+                        android:id="@+id/ata2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb3"
+                        android:id="@+id/ata3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb4"
+                        android:id="@+id/ata4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb5"
+                        android:id="@+id/ata5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -810,40 +819,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/atb"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/attitude_rb6"
+                        android:id="@+id/atb1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb7"
+                        android:id="@+id/atb2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb8"
+                        android:id="@+id/atb3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb9"
+                        android:id="@+id/atb4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb10"
+                        android:id="@+id/atb5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -873,40 +883,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/atc"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/attitude_rb11"
+                        android:id="@+id/atc1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb12"
+                        android:id="@+id/atc2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb13"
+                        android:id="@+id/atc3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb14"
+                        android:id="@+id/atc4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb15"
+                        android:id="@+id/atc5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -936,40 +947,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/atd"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/attitude_rb16"
+                        android:id="@+id/atd1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb17"
+                        android:id="@+id/atd2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb18"
+                        android:id="@+id/atd3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb19"
+                        android:id="@+id/atd4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb20"
+                        android:id="@+id/atd5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -999,40 +1011,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:id="@+id/ate"
                     android:orientation="horizontal"
                     android:scaleX="0.9"
                     android:scaleY="0.9">
 
                     <RadioButton
-                        android:id="@+id/attitude_rb21"
+                        android:id="@+id/ate1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb22"
+                        android:id="@+id/ate2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb23"
+                        android:id="@+id/ate3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb24"
+                        android:id="@+id/ate4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/attitude_rb25"
+                        android:id="@+id/ate5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -1047,7 +1060,7 @@
                     android:text="Suggestions for inclusion of new  technologies/ courses/ tools etc to be included in the curriculum:" />
 
                 <EditText
-                    android:id="@+id/Text"
+                    android:id="@+id/suggestions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
@@ -1056,7 +1069,7 @@
                     android:padding="25dp" />
 
                 <Button
-                    android:id="@+id/Submitbutton"
+                    android:id="@+id/submit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Submit Form"

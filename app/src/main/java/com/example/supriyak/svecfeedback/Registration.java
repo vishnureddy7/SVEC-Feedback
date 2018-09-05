@@ -326,7 +326,7 @@ public class Registration extends AppCompatActivity {
     }
 
     public Map<String, Object> getUser(){
-        Map<String, Object> user = new HashMap<>();
+        Map<String, Object> user = new HashMap<String,Object>();
         user.put("firstname",details.firstname);
         user.put("lastname",details.lastname);
         user.put("email",details.email);
