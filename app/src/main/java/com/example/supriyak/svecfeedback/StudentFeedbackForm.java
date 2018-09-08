@@ -1,7 +1,10 @@
 package com.example.supriyak.svecfeedback;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +25,7 @@ public class StudentFeedbackForm extends AppCompatActivity {
 
     Button submit;
     EditText suggestions;
+    ProgressDialog pd;
     int[] ids={R.id.ka,R.id.kb,R.id.kc,R.id.sa,R.id.sb,R.id.sc,R.id.sd,R.id.apa,R.id.apb,R.id.ata,R.id.atb,R.id.atc,R.id.atd,R.id.ate};
     String[] question ={"ka","kb","kc","sa","sb","sc","sd","apa","apb","ata","atb","atc","atd","ate"};//3 4 2 5
 
@@ -38,6 +42,7 @@ public class StudentFeedbackForm extends AppCompatActivity {
             public void onClick(View view) {
                 int selected[]=new int[14];
                 String x="";
+                pd= ProgressDialog.show(StudentFeedbackForm.this,"Please Wait while we submit your feedback","Please wait..");
                 for(int i=0;i<14;i++){
                     selected[i]=selectedItem(ids[i]);
                     x=x+" "+selected[i];
@@ -55,19 +60,43 @@ public class StudentFeedbackForm extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(StudentFeedbackForm.this,"Successfully registered",Toast.LENGTH_LONG).show();
-//                                Intent thankyou = new Intent(Registration.this,RegistrationThankyou.class);
-//                                startActivity(thankyou);
+                                StudentFeedbackForm.this.pd.dismiss();
+                                Toast.makeText(StudentFeedbackForm.this,"Feedback submitted successfully.",Toast.LENGTH_LONG).show();
+                                Intent thankyou = new Intent(StudentFeedbackForm.this,feedback_thankyou.class);
+                                startActivity(thankyou);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(StudentFeedbackForm.this,"Error while Registering. Please try again later.",Toast.LENGTH_LONG).show();
+                                StudentFeedbackForm.this.pd.dismiss();
+                                Toast.makeText(StudentFeedbackForm.this,"Error occured while submitting the feedback. Please try again later.",Toast.LENGTH_LONG).show();
                             }
                         });
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm");
+        builder.setMessage("Are you sure want to exit?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                System.exit(0);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //pass
+            }
+        });
+        builder.show();
     }
 
     int selectedItem(int id){

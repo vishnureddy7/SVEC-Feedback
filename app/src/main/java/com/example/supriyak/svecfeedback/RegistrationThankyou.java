@@ -14,7 +14,7 @@ public class RegistrationThankyou extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirm");
         builder.setMessage("Are you sure want to exit?");
@@ -26,7 +26,6 @@ public class RegistrationThankyou extends AppCompatActivity {
                 System.exit(0);
             }
         });
-
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -35,4 +34,5 @@ public class RegistrationThankyou extends AppCompatActivity {
         });
         builder.show();
     }
+
 }

@@ -5,6 +5,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.example.supriyak.svecfeedback"
         minSdkVersion 14
         targetSdkVersion 24
@@ -27,6 +28,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:24.1.1'
     implementation 'com.google.firebase:firebase-core:16.0.3'
     implementation 'com.google.firebase:firebase-database:16.0.1'
+    implementation 'com.android.support:multidex:1.0.3'
 }
 
 apply plugin: 'com.google.gms.google-services'

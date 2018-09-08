@@ -9,22 +9,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Registration" />
         <![CDATA[>
         ]]>
-        <activity android:name=".StudentFeedbackForm" >
-        </activity>>
-        <activity android:name=".AlumniFeedbackForm">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>>
+        <activity android:name=".StudentFeedbackForm"></activity>
+        <activity android:name=".AlumniFeedbackForm"></activity>
         <activity android:name=".EmployerFeedbackForm" />
         <activity android:name=".FacultyFeedbackForm" />
-        <activity android:name=".RegistrationThankyou"></activity>
+        <activity android:name=".RegistrationThankyou" />
+        <activity android:name=".feedback_thankyou"></activity>
     </application>
 
 </manifest>

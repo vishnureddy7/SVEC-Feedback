@@ -3,6 +3,7 @@ package com.example.supriyak.svecfeedback;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +36,30 @@ public class Login extends AppCompatActivity {
     ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        SharedPreferences sp1=this.getSharedPreferences("Login", MODE_PRIVATE);
+//
+//        String type=sp1.getString("type", null);
+//        if(type.equals("student")){
+//            Intent student = new Intent(Login.this, StudentFeedbackForm.class);
+//            startActivity(student);
+//            return;
+//        }
+//        else if(type.equals("alumni")){
+//            Intent alumni = new Intent(Login.this, AlumniFeedbackForm.class);
+//            startActivity(alumni);
+//            return;
+//        }
+//        else if(type.equals("employer")){
+//            Intent employer = new Intent(Login.this,  EmployerFeedbackForm.class);
+//            startActivity(employer);
+//            return;
+//        }
+//        else if(type.equals("faculty")){
+//            Intent faculty = new Intent(Login.this, FacultyFeedbackForm.class);
+//            startActivity(faculty);
+//            return;
+//        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         username = (EditText)findViewById(R.id.username);
@@ -170,7 +195,6 @@ public class Login extends AppCompatActivity {
                 System.exit(0);
             }
         });
-
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -179,33 +203,52 @@ public class Login extends AppCompatActivity {
         });
         builder.show();
     }
+
     void makemove(Map<String,Object> details){
         //details
         if(loginDetails.password.equals((String)(details.get("password")))){
             //correct details
             pd.dismiss();
-            Toast.makeText(Login.this,"Success "+details.get("mobile").toString()+" "+details.get("type").toString(),Toast.LENGTH_LONG).show();
             String type = details.get("type").toString();
+            SharedPreferences sp=getSharedPreferences("Login", MODE_PRIVATE);
+            SharedPreferences.Editor editor=sp.edit();
+            editor.putString("firstname",(String)details.get("firstname"));
+            editor.putString("lastname",(String)details.get("lastname"));
+            editor.putString("mobile",(String)details.get("mobile"));
+            editor.putString("email",(String)details.get("email"));
+            editor.putString("address",(String)details.get("address"));
+            editor.putString("password",(String)details.get("password"));
             if(type.equals("Student")){
+                editor.putString("type","student");
+                editor.putString("id",(String)details.get("id"));
+                editor.commit();
                 Intent student = new Intent(Login.this, StudentFeedbackForm.class);
                 startActivity(student);
             }
             else if(type.equals("Alumni")){
+                editor.putString("type","alumni");
+                editor.putString("id",(String)details.get("id"));
+                editor.commit();
                 Intent alumni = new Intent(Login.this, AlumniFeedbackForm.class);
                 startActivity(alumni);
             }
             else if(type.equals("Employer")){
+                editor.putString("type","employer");
+                editor.commit();
                 Intent employer = new Intent(Login.this, EmployerFeedbackForm.class);
                 startActivity(employer);
             }
             else{
+                editor.putString("type","faculty");
+                editor.putString("id",(String)details.get("id"));
+                editor.commit();
                 Intent faculty = new Intent(Login.this,FacultyFeedbackForm.class);
                 startActivity(faculty);
             }
         }
         else{
             pd.dismiss();
-            Toast.makeText(Login.this, "Incorrect Username or Password "+details.get("mobile").toString()+" "+details.get("type").toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(Login.this, "Incorrect Username or Password", Toast.LENGTH_LONG).show();
         }
     }
 }

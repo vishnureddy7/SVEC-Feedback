@@ -353,7 +353,7 @@ public class Registration extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        sendToast("Successfully registered");
+                        sendToast("Successfully registered.");
                         Registration.this.pd.dismiss();
                         Intent thankyou = new Intent(Registration.this,RegistrationThankyou.class);
                         startActivity(thankyou);
@@ -362,7 +362,7 @@ public class Registration extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        sendToast("Error while Registering. Please try again later.");
+                        sendToast("Error occured while Registering. Please try again..");
                         Registration.this.pd.dismiss();
                     }
                 });
