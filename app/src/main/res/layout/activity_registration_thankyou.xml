@@ -38,12 +38,15 @@
             android:textStyle="italic" />
 
         <Button
+            android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="14dp"
-            android:id="@+id/login"
+            android:layout_margin="20dp"
             android:textAllCaps="false"
+            android:textSize="16dp"
+            android:background="@color/themecolor"
+            android:textColor="@color/white"
+            android:text="Login" />
             />
 
     </LinearLayout>
