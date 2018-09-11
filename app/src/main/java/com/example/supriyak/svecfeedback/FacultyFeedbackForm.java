@@ -3,6 +3,7 @@ package com.example.supriyak.svecfeedback;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class FacultyFeedbackForm extends AppCompatActivity {
     ProgressDialog pd;
     int[] ids={R.id.ka,R.id.kb,R.id.sa,R.id.sb,R.id.sc,R.id.sd,R.id.apa,R.id.apb,R.id.ata,R.id.atb,R.id.atc,R.id.atd,R.id.ate};
     String[] question ={"ka","kb","sa","sb","sc","sd","apa","apb","ata","atb","atc","atd","ate"};//3 4 2 5
+    Map<String,String> details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +39,25 @@ public class FacultyFeedbackForm extends AppCompatActivity {
         setContentView(R.layout.activity_faculty_feedback_form);
         suggestions = (EditText)findViewById(R.id.suggestions);
         submit = (Button)findViewById(R.id.submit);
+        SharedPreferences sp=getSharedPreferences("Login", MODE_PRIVATE);
+        details= (Map<String, String>) sp.getAll();
         // ka kb kc sa sb sc sd apa apb ata atb atc atd ate
         submit.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
                 int selected[]=new int[13];
-                String x="";
                 pd= ProgressDialog.show(FacultyFeedbackForm.this,"Please Wait while we submit your feedback","Please wait..");
                 for(int i=0;i<13;i++){
-                    selected[i]=selectedItem(ids[i]);
-                    x=x+" "+selected[i];
+                    int s=selectedItem(ids[i]);
+                    if(s==-1){
+                        Toast.makeText(FacultyFeedbackForm.this,"Please answer all the questions",Toast.LENGTH_LONG).show();
+                        findViewById(ids[i]).requestFocus();
+                        pd.dismiss();
+                        return;
+                    }
+                    selected[i]=s;
                 }
-                Toast.makeText(FacultyFeedbackForm.this,x,Toast.LENGTH_LONG).show();
                 Map<String, Object> feedback = new HashMap<String,Object>();
                 for(int i=0;i<13;i++){
                     feedback.put(question[i],selected[i]);
@@ -57,7 +65,7 @@ public class FacultyFeedbackForm extends AppCompatActivity {
                 feedback.put("suggestions",suggestions.getText().toString());
                 FirebaseFirestore db=FirebaseFirestore.getInstance();
                 db.collection("Student Feedback")
-                        .document()
+                        .document(details.get("mobile"))
                         .set(feedback)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -88,8 +96,9 @@ public class FacultyFeedbackForm extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                finish();
-                System.exit(0);
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -102,6 +111,11 @@ public class FacultyFeedbackForm extends AppCompatActivity {
     }
 
     int selectedItem(int id){
-        return Integer.parseInt(((RadioButton)findViewById(((RadioGroup)findViewById(id)).getCheckedRadioButtonId())).getText().toString());
+        try {
+            return Integer.parseInt(((RadioButton) findViewById(((RadioGroup) findViewById(id)).getCheckedRadioButtonId())).getText().toString());
+        }catch(Exception e){
+            //pass
+            return -1;
+        }
     }
 }

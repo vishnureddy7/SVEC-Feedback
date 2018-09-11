@@ -1,5 +1,6 @@
 package com.example.supriyak.svecfeedback;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,7 +32,7 @@ public class Login extends AppCompatActivity {
     EditText username ;
     EditText password;
     Button login;
-    TextView signup;
+    TextView signup,forgotPassword;
     LoginDetails loginDetails;
     ProgressDialog pd;
     @Override
@@ -66,7 +67,15 @@ public class Login extends AppCompatActivity {
         password = (EditText)findViewById(R.id.password);
         login = (Button)findViewById(R.id.login);
         signup = (TextView)findViewById(R.id.signup);
+        forgotPassword = (TextView)findViewById(R.id.forgot_password);
         loginDetails = new LoginDetails();
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent forgot = new Intent(Login.this, ForgotPassword.class);
+                startActivity(forgot);
+            }
+        });
         login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {

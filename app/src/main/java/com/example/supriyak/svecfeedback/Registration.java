@@ -335,6 +335,7 @@ public class Registration extends AppCompatActivity {
         user.put("password",details.password);
         user.put("address",details.address);
         user.put("type",details.type);
+        user.put("filled",false);
         return user;
     }
 
