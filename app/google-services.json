@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "486941269246",
+    "firebase_url": "https://svecfeedback-fdb41.firebaseio.com",
+    "project_id": "svecfeedback-fdb41",
+    "storage_bucket": "svecfeedback-fdb41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486941269246:android:c5e95e1acfa79922",
+        "android_client_info": {
+          "package_name": "com.example.supriyak.svecfeedback"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486941269246-421sepgj5mhfaik4oquc26e5t3lvrm3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLv628vj7c0p-NvOmcXXGZm-2ZFq2TucE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
